@@ -1,1 +1,340 @@
-# hello-kitty-site
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pour ma copine 💗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Couleurs Hello Kitty */
+    :root {
+      --rose: #ffb6c9;
+      --rose-fonce: #ff4f8b;
+      --blanc: #ffffff;
+      --gris: #f7f7f7;
+      --noir: #333333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #ffe6f0, #fff);
+      color: var(--noir);
+    }
+
+    header {
+      background: var(--rose);
+      padding: 20px 15px;
+      text-align: center;
+      border-bottom: 4px solid var(--rose-fonce);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--noir);
+    }
+
+    header p {
+      margin-top: 5px;
+      font-size: 0.95rem;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--noir);
+      font-weight: 600;
+      margin: 0 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      font-size: 0.85rem;
+    }
+
+    nav a:hover {
+      background: var(--rose-fonce);
+      color: var(--blanc);
+      transition: 0.2s;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 25px auto 40px;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: var(--blanc);
+      border-radius: 20px;
+      padding: 20px 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+      border: 2px solid #ffe0ec;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "♡";
+      position: absolute;
+      font-size: 4rem;
+      color: rgba(255, 182, 201, 0.25);
+      right: -5px;
+      top: -20px;
+      transform: rotate(-15deg);
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: var(--rose-fonce);
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .hero-text {
+      flex: 1 1 220px;
+    }
+
+    .hero-text h2 {
+      font-size: 1.6rem;
+    }
+
+    .hero-text p {
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--rose-fonce);
+      color: var(--blanc);
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-photo {
+      flex: 0 0 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: url("https://i.imgur.com/7J7xg7P.png") center/cover no-repeat;
+      border: 4px solid var(--rose-fonce);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Section "À propos" */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      background: var(--gris);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+    }
+
+    .pill span {
+      font-weight: 600;
+      color: var(--rose-fonce);
+    }
+
+    /* Section souvenirs */
+    .memory-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .memory-list li {
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .memory-list li::before {
+      content: "✿ ";
+      color: var(--rose-fonce);
+    }
+
+    /* Galerie */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .gallery-item {
+      background: #ffeef6;
+      border-radius: 16px;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 8px;
+      border: 1px dashed #ffb6c9;
+    }
+
+    /* Message d'amour */
+    .love-text {
+      margin-top: 8px;
+      line-height: 1.6;
+      font-size: 0.98rem;
+    }
+
+    .signature {
+      margin-top: 12px;
+      font-weight: 600;
+      color: var(--rose-fonce);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px 10px 25px;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    footer span {
+      color: var(--rose-fonce);
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .hero-photo {
+        margin: 0 auto;
+      }
+      .card {
+        padding: 16px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Pour toi, mon chat 🐱</h1>
+  <p>Un mini site tout rose, inspiré d’Hello Kitty, juste pour toi.</p>
+  <nav>
+    <a href="#nous">Nous deux</a>
+    <a href="#apropos">À propos de toi</a>
+    <a href="#souvenirs">Nos souvenirs</a>
+    <a href="#message">Mon message</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="card hero" id="nous">
+    <div class="hero-text">
+      <h2>Toi & moi. </h2>
+      <p>
+        Ce petit site, c’est mon moyen à moi de te dire à quel point tu comptes pour moi.
+        Chaque couleur, chaque cœur, chaque mot est là pour te rappeler que tu es unique.
+      </p>
+      <div class="hero-badge">Créé avec beaucoup d’amour 💗</div>
+    </div>
+   <div class="hero-photo">
+      <!-- Tu peux remplacer l'image de fond dans le CSS par une photo à vous -->
+    </div>
+  </section>
+
+  <!-- À propos d'elle -->
+  <section class="card" id="apropos">
+    <h2>À propos de toi ✨</h2>
+    <p class="tagline">Quelques petites choses qui font que tu es toi… et que je t’adore.</p>
+    <div class="about-grid">
+      <div class="pill"><span>Toi :</span> Ma Ellie celle que j'aime la seule unique fille dans ma tête. </div>
+      <div class="pill"><span>Qualité :</span> Y'en a beaucoup mais ce que je retiens le plus c'est que tu rends tout plus doux autour de toi et surtout moi.</div>
+      <div class="pill"><span>Style :</span> Un mélange de cute, de classe et de chaos contrôlé.</div>
+      <div class="pill"><span>Ce que j’aime le plus :</span> Ton sourire, tes yeux et ton petit nez trop mignon.</div>
+    </div>
+  </section>
+
+  <!-- Souvenirs -->
+  <section class="card" id="souvenirs">
+    <h2>Nos petits souvenirs 🌸</h2>
+    <p class="tagline">Une mini liste de moments que je garde bien au chaud dans ma tête.</p>
+    <ul class="memory-list">
+      <li>Le jour ou toi et moi on à commencé a se parler pour la premiere fois.li>
+      <li>Nos discussions tard le soir, quand le monde entier dort sauf nous.</li>
+      <li>Les moments où on se retrouve a s'amuser sur la play.</li>
+      <li>Chaque fois où tu m’envoies des photos de toi même troll sans que je demande.</li>
+    </ul>
+
+    <div class="gallery">
+
+  <!-- Image 1 : Hello Kitty (première image envoyée) -->
+  <div class="gallery-item">
+    <img src="https://imgur.com/a/p3xFbDi" 
+         style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+  </div>
+
+  <!-- Image 2 : Hello Kitty and Friends (deuxième image envoyée) -->
+  <div class="gallery-item">
+    <img src="https://imgur.com/a/MnxIpXk" 
+         style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+  </div>
+
+</div>
+
+  </section>
+
+  <!-- Message d'amour -->
+  <section class="card" id="message">
+    <h2>Un petit mot pour toi 💌</h2>
+    <p class="love-text">
+   Je voulais te laisser quelque chose d’un peu différent aujourd’hui. Pas juste un message rapide, pas juste une photo envoyée comme d’habitude… mais un petit endroit rien qu’à nous, même si ce n’est qu’une simple page. Un endroit où je peux te rappeler à quel point tu comptes pour moi. Tu mérites tout ce qu’il y a de plus doux, de plus rose, de plus mignon, et honnêtement… si Hello Kitty avait une meilleure amie, je suis persuadé que ce serait toi.
+    </p>
+    <p class="love-text">
+   Merci d’être là, vraiment. Merci d’être toi, avec ta façon unique de me rassurer, de me faire rire, de me calmer même quand je suis insupportable. Merci de supporter mes défauts, mes blagues nulles, mes moments bizarres et mes silences parfois maladroits. Tu rends tout plus simple, plus léger, plus beau.
+    </p>
+   <p class="love-text">
+ Je suis tellement reconnaissant de t’avoir dans ma vie. Ce petit site, ce n’est rien comparé à tout ce que je ressens pour toi, mais c’est une façon de te montrer que je pense à toi, que je tiens à toi, et que tu occupes une place énorme dans mon cœur.
+    </p>
+    <p class="signature">
+      Avec tout mon amour,  
+      <br>Ton Homme 💗
+    </p>
+  </section>
+</main>
+
+<footer>
+  Fait avec <span>♥</span> et un peu de code — juste pour toi.
+</footer>
+
+</body>
+</html>
